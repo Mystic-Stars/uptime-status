@@ -3,9 +3,10 @@ window.Config = {
   // 站点标题
   SiteName: 'GHS Status',
 
-  // UptimeRobot API Keys
+  // UptimeRobot API Keys - 支持多个站点
   ApiKeys: [
-    'ur2716233-b4bfa6c94f221c3addee6763',
+    'ur2716233-b4bfa6c94f221c3addee6763', // 站点1
+    // 可以继续添加更多...
   ],
 
   // 监控天数（推荐60-90）
