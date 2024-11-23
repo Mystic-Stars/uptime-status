@@ -2,7 +2,7 @@
 
 一个基于 [UptimeRobot](https://uptimerobot.com/) API 的在线状态面板，用于展示网站监控状态。本项目基于 [yb/uptime-status](https://github.com/yb/uptime-status) 开发。
 
-![预览图](https://user-images.githubusercontent.com/25887822/178935137-6d23521d-5894-4fb8-922d-3575be4f7abc.png)
+![预览图](https://bu.dusays.com/2024/11/23/6741e9e45efc5.png)
 
 ## 特性
 
@@ -27,16 +27,28 @@
 2. 修改 `config.js` 文件：
    ```js
    window.Config = {
-     SiteName: '网站名称',
-     ApiKeys: ['UptimeRobot API Key'],
-     CountDays: 90,                     // 显示最近90天的数据
-     ShowLink: true,                    // 显示站点链接
-     Navi: [                           // 导航栏配置
+   
+     // 站点标题
+     SiteName: '网站名字',
+   
+     // UptimeRobot API Keys
+     ApiKeys: [
+       'ur27xxx33-b4xxxxxxxxxxxxdee6763',
+     ],
+   
+     // 监控天数（推荐60-90）
+     CountDays: 60,
+   
+     // 是否显示检测站点的链接
+     ShowLink: true,
+   
+     // 导航栏菜单
+     Navi: [
        {
-         text: '官网',
-         url: 'https://example.com'
-       }
-     ]
+         text: '网站名称',
+         url: 'https://www.example.com'
+       },    
+     ],
    };
    ```
 3. 将所有文件上传到网站空间
