@@ -9,7 +9,7 @@ window.Config = {
   ],
 
   // 监控天数（推荐60-90）
-  CountDays: 65,
+  CountDays: 55,
 
   // 是否显示检测站点的链接
   ShowLink: true,
@@ -22,7 +22,7 @@ window.Config = {
     },    
     {
       text: 'GitHub',
-      url: 'https://github.com/GarbageHumanStudio'
+      url: 'https://github.com/Mystic-Stars/uptime-status'
     },
     {
       text: '开发博客',

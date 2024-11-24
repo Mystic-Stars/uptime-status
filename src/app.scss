@@ -433,3 +433,111 @@ html.dark .theme-toggle .sun {
       height: 1rem;
   }
 }
+
+/* 汉堡菜单按钮 */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #64748b;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+}
+
+.dark .hamburger span {
+  background-color: #94a3b8;
+}
+
+/* 移动端菜单 */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #64748b;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    
+    &:hover {
+      color: #f59e0b;
+      background-color: #fffbeb;
+    }
+  }
+}
+
+.dark .mobile-menu {
+  background-color: rgba(15, 23, 42, 0.95);
+  
+  a {
+    color: #94a3b8;
+    
+    &:hover {
+      color: #fbbf24;
+      background-color: rgba(251, 191, 36, 0.1);
+    }
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+  
+  /* 汉堡菜单动画 */
+  .hamburger.active {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+  }
+}
+
+/* 保持桌面端样式不变 */
+@media (min-width: 769px) {
+  .desktop-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+}

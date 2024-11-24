@@ -16,6 +16,10 @@ function UptimeRobot({ apikey }) {
 
   const [monitors, setMonitors] = useState();
 
+  const formatSiteName = (name) => {
+    return name.replace(/^\d+\.\s*/, '');
+  };
+
   useEffect(() => {
     GetMonitors(apikey, CountDays).then(setMonitors);
   }, [apikey, CountDays]);
@@ -23,7 +27,7 @@ function UptimeRobot({ apikey }) {
   if (monitors) return monitors.map((site) => (
     <div key={site.id} className='site'>
       <div className='meta'>
-        <span className='name' dangerouslySetInnerHTML={{ __html: site.name }} />
+        <span className='name'>{formatSiteName(site.name)}</span>
         {ShowLink && <Link className='link' to={site.url} text={site.url} />}
         <span className={'status ' + site.status}>{status[site.status]}</span>
       </div>

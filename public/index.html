@@ -11,8 +11,17 @@
     <script>
       // 初始化主题
       (function() {
-        const theme = localStorage.getItem('theme') || 'light';
-        document.documentElement.classList.toggle('dark', theme === 'dark');
+        // 优先使用本地存储的主题设置
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+          return;
+        }
+        
+        // 如果没有本地设置，则使用系统主题
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', prefersDark);
+        localStorage.setItem('theme', prefersDark ? 'dark' : 'light');
       })();
     </script>
     <script src="./config.js"></script>
