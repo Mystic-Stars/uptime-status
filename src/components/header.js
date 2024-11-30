@@ -1,9 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Link from './link';
 import { getLocale } from '../common/i18n';
 
+// 将主题切换逻辑抽离为自定义 Hook
+function useTheme() {
+  const [isDark, setIsDark] = useState(
+    document.documentElement.classList.contains('dark')
+  );
+
+  const toggleDark = useCallback(() => {
+    const isDarkMode = !isDark;
+    setIsDark(isDarkMode);
+    document.documentElement.classList.toggle('dark', isDarkMode);
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDark]);
+
+  return [isDark, toggleDark];
+}
+
 function Header() {
-  const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'));
+  const [isDark, toggleDark] = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const locale = getLocale();
 
@@ -20,13 +36,6 @@ function Header() {
     mediaQuery.addListener(handleChange);
     return () => mediaQuery.removeListener(handleChange);
   }, []);
-
-  const toggleDark = () => {
-    const isDarkMode = !isDark;
-    setIsDark(isDarkMode);
-    document.documentElement.classList.toggle('dark', isDarkMode);
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

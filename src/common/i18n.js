@@ -19,7 +19,12 @@ export const languages = {
         total: '累计',
         average: '平均可用率',
         recent: '最近',
-        today: '今天'
+        today: '今天',
+        group: '分组',
+        averageUptime: '平均可用率',
+        expand: '展开分组',
+        collapse: '折叠分组',
+        sites: '个站点'
       },
       footer: {
         powered: '提供监控服务',
@@ -34,7 +39,42 @@ export const languages = {
         clear: '清除搜索',
         noResults: '未找到匹配的站点',
         searching: '正在搜索...',
-        tryAdjusting: '请尝试调整您的搜索条件'
+        tryAdjusting: '请尝试调整您的搜索条件',
+        currentFilters: '当前筛选条件：',
+        groupFilter: '分组',
+        statusFilter: '状态',
+        keyword: '搜索关键词',
+        inGroup: '在分组',
+        withStatus: '状态为',
+        noFilters: '无筛选条件',
+        tryAdjusting: '请尝试调整筛选条件后重试'
+      },
+      notice: {
+        hideToday: '今天不再提示',
+        close: '关闭'
+      },
+      filter: {
+        allGroups: '所有分组',
+        allStatus: '所有状态',
+        groupLabel: '选择分组',
+        statusLabel: '选择状态',
+        clearAll: '清除筛选',
+        shareFilters: '分享筛选结果',
+        filtersApplied: '已应用筛选'
+      },
+      statistics: {
+        total: '监控站点',
+        operational: '正常运行',
+        down: '故障站点',
+        unknown: '未知状态',
+        uptime: '平均可用率'
+      },
+      refresh: {
+        pull: '下拉刷新',
+        release: '松开刷新',
+        refreshing: '正在刷新...',
+        success: '刷新成功',
+        failure: '刷新失败'
       }
     }
   },
@@ -58,7 +98,12 @@ export const languages = {
         total: 'Total',
         average: 'Average Uptime',
         recent: 'Last',
-        today: 'Today'
+        today: 'Today',
+        group: 'Group',
+        averageUptime: 'Average Uptime',
+        expand: 'Expand Group',
+        collapse: 'Collapse Group',
+        sites: 'sites'
       },
       footer: {
         powered: 'Powered by',
@@ -73,7 +118,41 @@ export const languages = {
         clear: 'Clear search',
         noResults: 'No matching sites found',
         searching: 'Searching...',
-        tryAdjusting: 'Try adjusting your search term'
+        tryAdjusting: 'Try adjusting your search term',
+        currentFilters: 'Current filters:',
+        groupFilter: 'Group',
+        statusFilter: 'Status',
+        keyword: 'Search keyword',
+        inGroup: 'In group',
+        withStatus: 'With status',
+        noFilters: 'No filters applied',
+        tryAdjusting: 'Try adjusting your filters and try again'
+      },
+      notice: {
+        hideToday: 'Hide for today',
+        close: 'Close'
+      },
+      filter: {
+        allGroups: 'All Groups',
+        allStatus: 'All Status',
+        groupLabel: 'Select Group',
+        statusLabel: 'Select Status',
+        clearAll: 'Clear Filters',
+        filtersApplied: 'Filters Applied'
+      },
+      statistics: {
+        total: 'Total Sites',
+        operational: 'Operational',
+        down: 'Down',
+        unknown: 'Unknown',
+        uptime: 'Average Uptime'
+      },
+      refresh: {
+        pull: 'Pull to refresh',
+        release: 'Release to refresh',
+        refreshing: 'Refreshing...',
+        success: 'Refresh successful',
+        failure: 'Refresh failed'
       }
     }
   }
