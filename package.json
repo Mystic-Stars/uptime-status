@@ -1,6 +1,7 @@
 {
-  "name": "ghs-status",
+  "name": "uptime-next-status",
   "version": "1.0.0",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "start": "react-scripts start",

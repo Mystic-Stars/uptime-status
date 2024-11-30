@@ -1,4 +1,4 @@
-# GHS Status
+# Uptime Next Status
 
 一个基于 [UptimeRobot](https://uptimerobot.com/) API 的在线状态面板，用于展示网站监控状态。本项目基于 [yb/uptime-status](https://github.com/yb/uptime-status) 开发。
 

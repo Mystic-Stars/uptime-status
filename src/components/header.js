@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import Link from './link';
+import { getLocale } from '../common/i18n';
 
 function Header() {
   const [isDark, setIsDark] = useState(document.documentElement.classList.contains('dark'));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const locale = getLocale();
 
   useEffect(() => {
     document.title = window.Config.SiteName;
@@ -33,17 +35,30 @@ function Header() {
   return (
     <div id='header'>
       <div className='container'>
-        <h1 className='logo'>{window.Config.SiteName}</h1>
+        <div className='brand'>
+          {window.Config.Logo && (
+            <img 
+              src={window.Config.Logo.icon} 
+              alt="Logo"
+              className='site-logo'
+              style={{
+                width: window.Config.Logo.width || '28px',
+                height: window.Config.Logo.height || '28px'
+              }}
+            />
+          )}
+          <h1 className='logo'>{window.Config.SiteName}</h1>
+        </div>
         <div className='navi'>
           {/* 桌面端导航 */}
           <div className="desktop-nav">
             {window.Config.Navi.map((item, index) => (
-              <Link key={index} to={item.url} text={item.text} />
+              <Link key={index} to={item.url} text={item[locale]?.text || item['en-US'].text} />
             ))}
           </div>
           
           {/* 移动端汉堡按钮 */}
-          <button className="hamburger" onClick={toggleMenu} aria-label="菜单">
+          <button className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="菜单">
             <span></span>
             <span></span>
             <span></span>
@@ -64,7 +79,7 @@ function Header() {
       {/* 移动端菜单 */}
       <div className={`mobile-menu ${isMenuOpen ? 'active' : ''}`}>
         {window.Config.Navi.map((item, index) => (
-          <Link key={index} to={item.url} text={item.text} />
+          <Link key={index} to={item.url} text={item[locale]?.text || item['en-US'].text} />
         ))}
       </div>
     </div>
