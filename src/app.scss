@@ -141,7 +141,7 @@ html.dark .theme-toggle .sun {
   gap: 1rem;
 }
 
-/* 现代化的状态卡片 */
+/* 现代化��状态卡片 */
 .site {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 1.25rem;
@@ -1279,7 +1279,7 @@ html.dark .theme-toggle .sun {
   }
 }
 
-/* 小屏幕适配 */
+/* 小屏幕���配 */
 @media (max-width: 360px) {
   .site {
     padding: 1rem;
@@ -2497,45 +2497,156 @@ html.dark .theme-toggle .sun {
   }
 }
 
-/* 下拉刷新样式 */
-.pull-to-refresh {
-  position: relative;
-  min-height: 100vh;
-  
-  .pull-indicator {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    transition: transform 0.2s ease-out;
-    
-    .pull-text {
-      padding: 0.5rem 1rem;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      color: #64748b;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transform: translateY(-100%);
-      transition: all 0.2s ease;
+/* 骨架屏移动端适配 */
+@media (max-width: 768px) {
+  .skeleton-wrapper {
+    .skeleton-group {
+      margin-bottom: 1rem;
+      
+      .skeleton-header {
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.75rem;
+        
+        .skeleton-title {
+          width: 100px;
+          height: 20px;
+        }
+        
+        .skeleton-stats {
+          width: 80px;
+          height: 18px;
+        }
+      }
+      
+      .skeleton-site {
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        
+        .skeleton-meta {
+          margin-bottom: 1rem;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+          
+          .skeleton-name {
+            width: 140px;
+            height: 20px;
+          }
+          
+          .skeleton-url {
+            width: 100%;
+            height: 18px;
+          }
+          
+          .skeleton-status {
+            width: 70px;
+            height: 24px;
+          }
+        }
+        
+        .skeleton-timeline {
+          margin: 1rem 0;
+          padding: 4px;
+          gap: 2px;
+          
+          .skeleton-day {
+            height: 1.5rem;
+          }
+        }
+        
+        .skeleton-summary {
+          flex-direction: column;
+          gap: 0.75rem;
+          align-items: flex-start;
+          
+          .skeleton-date {
+            width: 80px;
+            height: 18px;
+          }
+          
+          .skeleton-stats-group {
+            width: 100%;
+            margin: 0;
+            
+            .skeleton-uptime {
+              width: 100px;
+              height: 20px;
+            }
+            
+            .skeleton-range {
+              width: 160px;
+              height: 18px;
+            }
+          }
+          
+          .skeleton-today {
+            width: 60px;
+            height: 18px;
+            align-self: flex-end;
+          }
+        }
+      }
     }
   }
 }
 
-/* 暗色主题适配 */
-.dark .pull-to-refresh {
-  .pull-indicator {
-    .pull-text {
-      background: rgba(15, 23, 42, 0.9);
-      color: #94a3b8;
-      border-color: rgba(255, 255, 255, 0.05);
+/* 筛选器移动端优化 */
+@media (max-width: 768px) {
+  .filter-dropdown {
+    flex: 1;
+    min-width: 0; // 允许宽度收缩
+    
+    .filter-button {
+      width: 100%;
+      justify-content: space-between;
+      
+      .filter-text {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-right: 0.5rem;
+      }
+    }
+    
+    .filter-options {
+      left: 0;
+      right: 0;
+      min-width: 200px; // 确保下拉菜单有足够宽度
+      max-width: calc(100vw - 2rem); // 防止超出屏幕
+      
+      .filter-option {
+        white-space: normal; // 允许文本换行
+        line-height: 1.3;
+        padding: 0.625rem 0.875rem;
+      }
+    }
+  }
+  
+  .filters-container {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    
+    .clear-filters-btn {
+      width: 100%; // 清除按钮占满宽度
+      justify-content: center;
+    }
+  }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 360px) {
+  .filter-dropdown {
+    .filter-button {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+    }
+    
+    .filter-options {
+      .filter-option {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+      }
     }
   }
 }

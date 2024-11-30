@@ -68,13 +68,6 @@ export const languages = {
         down: '故障站点',
         unknown: '未知状态',
         uptime: '平均可用率'
-      },
-      refresh: {
-        pull: '下拉刷新',
-        release: '松开刷新',
-        refreshing: '正在刷新...',
-        success: '刷新成功',
-        failure: '刷新失败'
       }
     }
   },
@@ -146,13 +139,6 @@ export const languages = {
         down: 'Down',
         unknown: 'Unknown',
         uptime: 'Average Uptime'
-      },
-      refresh: {
-        pull: 'Pull to refresh',
-        release: 'Release to refresh',
-        refreshing: 'Refreshing...',
-        success: 'Refresh successful',
-        failure: 'Refresh failed'
       }
     }
   }

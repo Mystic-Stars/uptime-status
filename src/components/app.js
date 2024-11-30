@@ -8,14 +8,12 @@ import SearchBar from './search-bar';
 import { getText } from '../common/i18n';
 import Package from '../../package.json';
 import Statistics from './statistics';
-import PullToRefresh from './pull-to-refresh';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [groupFilter, setGroupFilter] = useState(null);
   const [statusFilter, setStatusFilter] = useState(null);
   const [monitors, setMonitors] = useState(null);
-  const [isRefreshing, setIsRefreshing] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -60,62 +58,47 @@ function App() {
     return [];
   }, []);
 
-  const handleRefresh = async () => {
-    setIsRefreshing(true);
-    try {
-      // 重新加载所有监控数据
-      setMonitors(null); // 触发骨架屏
-      // 等待一小段时间以显示加载动画
-      await new Promise(resolve => setTimeout(resolve, 500));
-      // 重新获取数据的逻辑会通过 UptimeRobot 组件的 useEffect 自动触发
-    } finally {
-      setIsRefreshing(false);
-    }
-  };
-
   return (
     <>
       <Header />
       <Notice />
-      <PullToRefresh onRefresh={handleRefresh}>
-        <div className='container'>
-          <div className="search-filter-container">
-            <SearchBar onSearch={handleSearch} initialValue={searchTerm} />
-            <div className="filters-container">
-              <UptimeRobot.Filters
-                groupFilter={groupFilter}
-                statusFilter={statusFilter}
-                onGroupFilterChange={handleGroupFilter}
-                onStatusFilterChange={handleStatusFilter}
-              />
-            </div>
-          </div>
-          <div id='uptime'>
-            {apikeys.map((key) => (
-              <UptimeRobot 
-                key={key} 
-                apikey={key} 
-                searchTerm={searchTerm}
-                groupFilter={groupFilter}
-                statusFilter={statusFilter}
-                onMonitorsLoad={(monitors) => setMonitors(monitors)}
-              />
-            ))}
-          </div>
-          <div id='footer'>
-            <Statistics monitors={monitors} />
-            <p>
-              <Link to='https://uptimerobot.com/' text='UptimeRobot' /> {getText('footer.powered')} | 
-              {getText('footer.interval')}
-            </p>
-            <p>
-              {getText('footer.made')} <Link to='https://www.ghs.red' text='Garbage Human Studio' /> | 
-              Version {Package.version}
-            </p>
-            <LanguageToggle />
+      <div className='container'>
+        <div className="search-filter-container">
+          <SearchBar onSearch={handleSearch} initialValue={searchTerm} />
+          <div className="filters-container">
+            <UptimeRobot.Filters
+              groupFilter={groupFilter}
+              statusFilter={statusFilter}
+              onGroupFilterChange={handleGroupFilter}
+              onStatusFilterChange={handleStatusFilter}
+            />
           </div>
         </div>
-      </PullToRefresh>
+        <div id='uptime'>
+          {apikeys.map((key) => (
+            <UptimeRobot 
+              key={key} 
+              apikey={key} 
+              searchTerm={searchTerm}
+              groupFilter={groupFilter}
+              statusFilter={statusFilter}
+              onMonitorsLoad={(monitors) => setMonitors(monitors)}
+            />
+          ))}
+        </div>
+        <div id='footer'>
+          <Statistics monitors={monitors} />
+          <p>
+            <Link to='https://uptimerobot.com/' text='UptimeRobot' /> {getText('footer.powered')} | 
+            {getText('footer.interval')}
+          </p>
+          <p>
+            {getText('footer.made')} <Link to='https://www.ghs.red' text='Garbage Human Studio' /> | 
+            Version {Package.version}
+          </p>
+          <LanguageToggle />
+        </div>
+      </div>
     </>
   );
 }
