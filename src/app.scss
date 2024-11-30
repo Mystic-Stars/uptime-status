@@ -639,90 +639,28 @@ html.dark .theme-toggle .sun {
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 1000;
-}
-
-.language-toggle-button {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.625rem 0.875rem;
-  background-color: rgba(255, 255, 255, 0.95);
-  border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  color: #475569;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   
-  &:hover {
-    border-color: #cbd5e1;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transform: translateY(-1px);
-  }
-  
-  .fi {
-    font-size: 1.125em;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
-    border-radius: 2px;
-  }
-  
-  .language-name {
-    margin: 0 0.25rem;
-  }
-  
-  .arrow-icon {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0.6;
-    
-    &.open {
-      transform: rotate(180deg);
-    }
-  }
-}
-
-.language-dropdown {
-  position: absolute;
-  bottom: calc(100% + 0.5rem);
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.98);
-  border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  padding: 0.375rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 
-              0 2px 4px -1px rgba(0, 0, 0, 0.04);
-  backdrop-filter: blur(10px);
-  min-width: 160px;
-  transform-origin: bottom right;
-  animation: dropdownShow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  .language-option {
+  .language-toggle-button {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    width: 100%;
-    padding: 0.625rem 0.75rem;
-    border: none;
-    background: none;
+    padding: 0.625rem 0.875rem;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
     color: #475569;
     font-size: 0.875rem;
     font-weight: 500;
     cursor: pointer;
-    border-radius: 0.5rem;
-    transition: all 0.15s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     
     &:hover {
-      background-color: #f8fafc;
-      color: #0f172a;
-    }
-    
-    &.active {
-      background-color: #f1f5f9;
-      color: #0f172a;
-      font-weight: 600;
+      border-color: #cbd5e1;
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transform: translateY(-1px);
     }
     
     .fi {
@@ -730,38 +668,114 @@ html.dark .theme-toggle .sun {
       box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
       border-radius: 2px;
     }
+    
+    .language-name {
+      margin: 0 0.25rem;
+    }
+    
+    .arrow-icon {
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0.6;
+      
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
   }
-}
-
-@keyframes dropdownShow {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  
+  .language-dropdown {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    padding: 0.375rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 
+                0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+    min-width: 160px;
+    transform-origin: bottom right;
+    animation: dropdownShow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    .language-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+      padding: 0.625rem 0.75rem;
+      border: none;
+      background: none;
+      color: #475569;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      transition: all 0.15s ease;
+      
+      &:hover {
+        background-color: #f8fafc;
+        color: #0f172a;
+      }
+      
+      &.active {
+        background-color: #f1f5f9;
+        color: #0f172a;
+        font-weight: 600;
+      }
+      
+      .fi {
+        font-size: 1.125em;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+        border-radius: 2px;
+      }
+    }
   }
 }
 
 /* 暗色主题适配 */
 .dark {
-  #header,
-  .site,
-  .language-toggle-button,
-  .language-dropdown {
-    background-color: rgba(15, 23, 42, 0.75);
-    border-color: rgba(51, 65, 85, 0.5);
-  }
-  
-  .navi a,
-  .theme-toggle,
-  .language-option {
-    color: #94a3b8;
+  .language-switcher {
+    .language-toggle-button {
+      background: rgba(15, 23, 42, 0.75);
+      border-color: rgba(51, 65, 85, 0.5);
+      color: #94a3b8;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      
+      &:hover {
+        background: rgba(30, 41, 59, 0.85);
+        border-color: rgba(71, 85, 105, 0.6);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      }
+      
+      .fi {
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+      }
+    }
     
-    &:hover {
-      color: #fbbf24;
-      background-color: rgba(251, 191, 36, 0.1);
+    .language-dropdown {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(51, 65, 85, 0.5);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 
+                  0 2px 4px -1px rgba(0, 0, 0, 0.1);
+      
+      .language-option {
+        color: #94a3b8;
+        
+        &:hover {
+          background-color: rgba(51, 65, 85, 0.3);
+          color: #e2e8f0;
+        }
+        
+        &.active {
+          background-color: rgba(51, 65, 85, 0.5);
+          color: #f1f5f9;
+        }
+        
+        .fi {
+          box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+      }
     }
   }
 }
@@ -1158,7 +1172,7 @@ html.dark .theme-toggle .sun {
     display: inline-block;
   }
   
-  /* 时间线适��� */
+  /* 时间线适 */
   .site .timeline {
     margin: 1.25rem 0;
     padding: 4px;
@@ -1279,7 +1293,7 @@ html.dark .theme-toggle .sun {
   }
 }
 
-/* 小屏幕���配 */
+/* 小屏幕配 */
 @media (max-width: 360px) {
   .site {
     padding: 1rem;
@@ -2010,7 +2024,7 @@ html.dark .theme-toggle .sun {
   }
 }
 
-/* 移��端适配 */
+/* 移端适配 */
 @media (max-width: 768px) {
   .search-filter-container {
     flex-direction: column;
@@ -2606,19 +2620,6 @@ html.dark .theme-toggle .sun {
         text-overflow: ellipsis;
         white-space: nowrap;
         margin-right: 0.5rem;
-      }
-    }
-    
-    .filter-options {
-      left: 0;
-      right: 0;
-      min-width: 200px; // 确保下拉菜单有足够宽度
-      max-width: calc(100vw - 2rem); // 防止超出屏幕
-      
-      .filter-option {
-        white-space: normal; // 允许文本换行
-        line-height: 1.3;
-        padding: 0.625rem 0.875rem;
       }
     }
   }
